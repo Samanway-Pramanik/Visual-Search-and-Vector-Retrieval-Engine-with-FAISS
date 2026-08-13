@@ -1,0 +1,13 @@
+# Dataset
+data/images/
+
+# Generated embeddings
+embeddings/
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
