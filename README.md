@@ -17,22 +17,28 @@ This project explores **visual search**, where the input itself is an image.
 <br><br>
 🖼️
 <br>
-<b>Query Image</b>
+<b>Query Image
+</b>
 ⬇️
 <br>
-<b>Image Preprocessing</b>
+<b>Image Preprocessing
+</b>
 ⬇️
 <br>
-<b>Feature Extraction</b>
+<b>Feature Extraction
+</b>
 ⬇️
 <br>
-<b>Image Embedding</b>
+<b>Image Embedding
+</b>
 ⬇️
 <br>
-<b>FAISS Vector Search</b>
+<b>FAISS Vector Search
+</b>
 ⬇️
 <br>
-<b>Top-K Similar Products</b>
+<b>Top-K Similar Products
+</b>
 </div>
 
 ## 🛠️ Tech Stack
