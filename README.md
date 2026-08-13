@@ -11,45 +11,28 @@ Traditional product search generally relies on text, keywords, or structured att
 This project explores **visual search**, where the input itself is an image.
 
 <div align="center">
-
+ 
 <b>Visual Search Workflow</b>
 
 <br><br>
-
 🖼️
 <br>
 <b>Query Image</b>
-
 ⬇️
-
-⚙️
 <br>
 <b>Image Preprocessing</b>
-
 ⬇️
-
-🔍
 <br>
 <b>Feature Extraction</b>
-
 ⬇️
-
-📊
 <br>
 <b>Image Embedding</b>
-
 ⬇️
-
-⚡
 <br>
 <b>FAISS Vector Search</b>
-
 ⬇️
-
-🎯
 <br>
 <b>Top-K Similar Products</b>
-
 </div>
 
 ## 🛠️ Tech Stack
