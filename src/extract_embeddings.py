@@ -78,3 +78,7 @@ if __name__ == "__main__" :
     
     print("Embedding shape :" ,all_embeddings.shape ) 
     print("Saved to ... : ", output_file ) 
+    
+    os.makedirs("../metadata", exist_ok=True)
+    np.save("../metadata/image_paths.npy", np.array(paths))  # we need imahe paths , as FAISS
+                                                             # will return only IDs  
