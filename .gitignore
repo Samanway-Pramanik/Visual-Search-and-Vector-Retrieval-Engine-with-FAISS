@@ -4,6 +4,12 @@ data/images/
 # Generated embeddings
 embeddings/
 
+# Generated FAISS index
+faiss_index/
+
+# Generated metadata
+metadata/
+
 # Python
 __pycache__/
 *.pyc
