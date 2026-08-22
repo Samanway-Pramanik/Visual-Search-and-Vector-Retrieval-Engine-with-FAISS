@@ -7,7 +7,10 @@ import torchvision.models as models
 from torch.utils.data import Dataset, DataLoader 
 
 # import the function from preprocess.py
-from src.preprocess import preprocess_image
+try:
+    from src.preprocess import preprocess_image
+except ModuleNotFoundError:
+    from preprocess import preprocess_image
 
 
 # Loading the pretrained ResNet50 model 

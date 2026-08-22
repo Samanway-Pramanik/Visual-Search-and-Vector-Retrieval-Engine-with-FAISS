@@ -1,14 +1,6 @@
-# Dataset
-data/images/
-
-# Generated embeddings
-embeddings/
-
-# Generated FAISS index
-faiss_index/
-
-# Generated metadata
-metadata/
+# Original large dataset
+data/abo-images-small.tar
+data/abo-images-small.tar:Zone.Identifier
 
 # Python
 __pycache__/

@@ -16,7 +16,7 @@ with tarfile.open(tar_path, "r") as tar :
         if not member.isfile() :
             continue # non files skipped
         
-        if count < 1000 :
+        if count < 1800 :
             tar.extract(member, path=output_dir)  
             count += 1 
         
