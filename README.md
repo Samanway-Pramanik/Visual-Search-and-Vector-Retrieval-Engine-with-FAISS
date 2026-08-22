@@ -44,72 +44,112 @@ This project explores **visual search**, where the input itself is an image.
 ## 🛠️ Tech Stack
 
 - Python
-- PyTorch / Torchvision
+- PyTorch
+- Torchvision
 - ResNet50
 - NumPy
 - FAISS
-- FastAPI
 - Streamlit
-- Docker
 
+---
 
 ## 📦 Dataset
 
-The project uses product images from the **Amazon Berkeley Objects (ABO)** dataset.
+The project uses product images from the **Amazon Berkeley Objects (ABO) Dataset**.
 
-The initial prototype uses a subset of approximately 1,000 product images rather than the complete dataset.
+For this prototype, a subset of approximately **1,800 product images** is used instead of the complete dataset.
 
-The project is structured so that the image collection can be increased later without changing the basic retrieval workflow.
+The pipeline is designed so that the image collection can be increased later without changing the overall retrieval workflow.
 
+---
 
-## 🧠 Embedding Generation
+## 🧠 Image Embedding Generation
 
-A pretrained ResNet50 model is used as a feature extractor.
+A pretrained **ResNet50** model is used as the feature extractor.
 
-The final classification layer is removed because the objective is not image classification. The resulting feature representation is used as the image embedding.
+The final classification layer is removed because the objective is not image classification. Instead, the resulting **2048-dimensional feature representation** is used as the image embedding.
 
-For the current prototype:
+For each image, the following process is performed:
 
-- Images processed: 999
-- Embedding dimension: 2048
-- Data type: `float32`
-- Embedding storage: NumPy `.npy` file
+**Product Image → Preprocessing → ResNet50 → 2048-D Embedding**
 
+### Current Configuration
 
-## 🔍 Vector Retrieval
+- **Images indexed:** ~1,800
+- **Embedding dimension:** 2048
+- **Data type:** `float32`
+- **Embedding storage:** NumPy `.npy`
 
-FAISS is used to index the generated image embeddings.
+---
+
+## 🔍 Vector Retrieval with FAISS
+
+**FAISS (Facebook AI Similarity Search)** is used to perform similarity search over the generated image embeddings.
 
 For a query image:
 
-1. Preprocess the image.
-2. Generate its embedding.
-3. Search the FAISS index.
-4. Retrieve the nearest vectors.
-5. Map the retrieved IDs back to the corresponding products.
-6. Display the most similar products.
+1. The user uploads an image through the Streamlit interface.
+2. The image is temporarily saved.
+3. The image is preprocessed using the same preprocessing pipeline used for the dataset images.
+4. ResNet50 generates a **2048-dimensional embedding** for the query image.
+5. The query embedding is passed to the FAISS index.
+6. FAISS searches for the nearest vectors in the indexed embedding collection.
+7. The returned vector IDs are mapped back to the corresponding image paths using the stored metadata.
+8. The most visually similar product images are displayed to the user.
 
+The number of retrieved results can be selected through the Streamlit interface.
 
-## 📊 Current Progress
+---
+
+## 🖥️ Streamlit Application
+
+The project includes an interactive **Streamlit** interface for performing visual product search.
+
+Users can:
+
+- Upload a product image
+- Select the number of similar images to retrieve
+- View the uploaded query image
+- View the retrieved visually similar products
+- See the corresponding FAISS similarity distances
+
+The application performs the complete retrieval pipeline at inference time:
+
+**Query Image → Preprocessing → ResNet50 → Embedding → FAISS Search → Similar Images**
+
+---
+
+## 📊 Current Status
 
 - [x] Dataset preparation
+- [x] Image subset extraction
 - [x] Image preprocessing
 - [x] ResNet50 feature extraction
 - [x] Batch embedding generation
-- [x] 999 image embeddings generated
-- [ ] FAISS index
-- [ ] Similarity search
-- [ ] Image ID → product mapping
-- [ ] Query image retrieval
-- [ ] FastAPI API
-- [ ] Streamlit interface
-- [ ] Docker setup
+- [x] FAISS index creation
+- [x] Image ID → image path mapping
+- [x] Similarity search
+- [x] Query image retrieval
+- [x] Streamlit interface
 
+### Future Improvements
+
+- [ ] Increase the indexed image collection
+- [ ] Improve embedding quality
+- [ ] Experiment with different similarity metrics
+- [ ] Add product metadata to search results
+- [ ] Optimize inference and retrieval performance
+- [ ] Deploy the application publicly
+
+---
 
 ## 📁 Project Structure
 
 ```text
 Visual Search & Vector Retrieval Engine/
+│
+├── app/
+│   └── app.py
 │
 ├── data/
 │   └── images/
@@ -117,11 +157,20 @@ Visual Search & Vector Retrieval Engine/
 ├── embeddings/
 │   └── embeddings_1k.npy
 │
+├── faiss_index/
+│   └── index_1k.faiss
+│
+├── metadata/
+│   └── image_paths.npy
+│
 ├── src/
+│   ├── __init__.py
 │   ├── preprocess.py
+│   ├── extract_subset.py
 │   ├── extract_embeddings.py
-│   └── ...
+│   ├── build_index.py
+│   └── search.py
 │
 ├── requirements.txt
-├── README.md
-└── .gitignore
+├── .gitignore
+└── README.md
