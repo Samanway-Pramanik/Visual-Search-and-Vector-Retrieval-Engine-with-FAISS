@@ -12,8 +12,8 @@ print("Embeddings shape:", embeddings.shape)
 dimension = embeddings.shape[1]
 print("Vector dimension:", dimension)
 
-# 3. Create FAISS index
-index = faiss.IndexFlatL2(dimension)
+# 3. Create FAISS index (IP = cosine similarity => inner proiduct of normalised vectors)
+index = faiss.IndexFlatIP(dimension)
 
 # 4. Add embeddings to the index
 index.add(embeddings)

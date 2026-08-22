@@ -7,7 +7,7 @@ import torchvision.models as models
 from torch.utils.data import Dataset, DataLoader 
 
 # import the function from preprocess.py
-from preprocess import preprocess_image
+from src.preprocess import preprocess_image
 
 
 # Loading the pretrained ResNet50 model 
@@ -38,6 +38,12 @@ def get_embedding (images) :
     with torch.no_grad() :
         embedding = model(images) 
         embedding = embedding.cpu().numpy().astype("float32") 
+        # L2 normalisation for cosine similarity 
+        embedding = embedding / np.linalg.norm(
+            embedding,
+            axis = 1,
+            keepdims=True
+        )
     return embedding 
 
 
