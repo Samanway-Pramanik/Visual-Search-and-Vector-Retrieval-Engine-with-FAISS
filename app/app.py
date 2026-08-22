@@ -52,7 +52,7 @@ image_paths = np.load(
 
 
 #Streamlit UI things 
-st.title ("Visual SEarch with FAISS (Facebook AI Similarity Search)")
+st.title ("Visual Search with FAISS (Facebook AI Similarity Search)")
 
 st.write("Uplaod a proudct image to find similar images ") 
 
@@ -126,7 +126,7 @@ if uploaded_file is not None :
         with columns[i] :
             st.image(
                 image_path,
-                caption = f"Dostance : {distances [0][i] :.2f}"
+                caption = f"Distance : {distances [0][i] :.2f}"
             )
     
     
