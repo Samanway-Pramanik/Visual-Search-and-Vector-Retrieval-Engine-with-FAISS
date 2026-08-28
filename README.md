@@ -6,10 +6,10 @@ The project uses image embeddings generated from a pretrained ResNet50 model and
 
 ## 🎯 Problem & Business Value
 
-Problem:
+### Problem:
 Traditional e-commerce search relies heavily on text-based queries, which can make it difficult for users to find products when they don't know the exact product name, keywords, or description. This creates friction in visual product discovery, especially for categories such as fashion, footwear, furniture, and accessories.
 
-Business Value:
+### Business Value:
 This project enables image-based product discovery by allowing users to upload an image and retrieve visually similar products from a large catalog. This can improve the shopping experience, reduce search friction, and provide the foundation for business use cases such as visual search, similar-product recommendations, product discovery, and cross-selling.
 
 ## 🎯 Project Overview
