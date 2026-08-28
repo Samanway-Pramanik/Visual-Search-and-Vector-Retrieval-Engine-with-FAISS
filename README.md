@@ -4,7 +4,7 @@ An image-based product search system that retrieves visually similar products fr
 
 The project uses image embeddings generated from a pretrained ResNet50 model and FAISS for vector similarity search. A query image is converted into an embedding and compared against the indexed product embeddings to retrieve the most similar items.
 
-🎯 Problem & Business Value
+## 🎯 Problem & Business Value
 
 Problem:
 Traditional e-commerce search relies heavily on text-based queries, which can make it difficult for users to find products when they don't know the exact product name, keywords, or description. This creates friction in visual product discovery, especially for categories such as fashion, footwear, furniture, and accessories.
