@@ -4,7 +4,9 @@ An image-based product search system that retrieves visually similar products fr
 
 The project uses image embeddings generated from a pretrained ResNet50 model and FAISS for vector similarity search. A query image is converted into an embedding and compared against the indexed product embeddings to retrieve the most similar items.
 
-### [🔗 Live Demo] (https://visual-image-search-faiss.streamlit.app/)
+### 🚀 Live Demo
+[🔗 Try the Visual Search System](https://visual-image-search-faiss.streamlit.app/)
+
 
 
 ## 🎯 Problem & Business Value
